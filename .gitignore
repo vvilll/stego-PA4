@@ -30,6 +30,8 @@
 *.exe
 *.out
 *.app
+stegoBMP
 
 #notes
 practice
+secret.bmp

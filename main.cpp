@@ -1,3 +1,9 @@
+/**
+ * @file main.cpp
+ * @author William Wotherspoon
+ * @brief stegonography program for bmp files
+ * @date 2024-10-13
+ */
 #include <iostream>
 #include <fstream>
 #include "stego.h"

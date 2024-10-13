@@ -1,3 +1,9 @@
+/**
+ * @file stego.h
+ * @author William Wotherspoon
+ * @brief function declaration file
+ * @date 2024-10-13
+ */
 #ifndef STEGO_H
 #define STEGO_H
 #include <iostream>

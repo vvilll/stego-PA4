@@ -1,5 +1,17 @@
+/**
+ * @file stego.cpp
+ * @author William Wotherspoon
+ * @brief function definition file
+ * @date 2024-10-13
+ */
 #include "stego.h"
 
+/**
+ * @brief open file for input
+ * 
+ * @param file file object
+ * @param infile name of file
+ */
 void openFileIn(std::fstream &file,std::string infile)
 {
     file.open(infile, std::ios::in | std::ios::binary);
@@ -9,6 +21,12 @@ void openFileIn(std::fstream &file,std::string infile)
     }
 }
 
+/**
+ * @brief open file for output
+ * 
+ * @param file file object
+ * @param outfile file name
+ */
 void openFileOut(std::fstream &file,std::string outfile)
 {
     file.open(outfile, std::ios::out | std::ios::binary);
@@ -18,6 +36,11 @@ void openFileOut(std::fstream &file,std::string outfile)
     }
 }
 
+/**
+ * @brief checks if file is bmp
+ * 
+ * @param file file to be checked
+ */
 void checkBMP(std::fstream &file)
 {
     char rMagic[2];
@@ -30,6 +53,11 @@ void checkBMP(std::fstream &file)
     }
 }
 
+/**
+ * @brief checks file for compression
+ * 
+ * @param file file to be checked
+ */
 void checkCompr(std::fstream &file)
 {
     int32_t compr;
@@ -43,6 +71,12 @@ void checkCompr(std::fstream &file)
     }
 }
 
+/**
+ * @brief finds the start of the pixel array
+ * 
+ * @param file the file to be searched
+ * @return int32_t the start point of pixel array
+ */
 int32_t findPixel(std::fstream &file)
 {
     int32_t start;
@@ -51,6 +85,12 @@ int32_t findPixel(std::fstream &file)
     return start;
 }
 
+/**
+ * @brief Get the User Message
+ * 
+ * @param space the space available for encoding
+ * @return std::string users message
+ */
 std::string getUserMsg(unsigned int space)
 {
     std::string message=" ";
@@ -65,6 +105,13 @@ std::string getUserMsg(unsigned int space)
     return message;
 }
 
+/**
+ * @brief writes the message to file using lsb encoding
+ * 
+ * @param inFile cover file
+ * @param outFile file that will contain the secret
+ * @param msg message to be encoded
+ */
 void writeMsg(std::fstream &inFile,std::fstream &outFile,std::string msg)
 {
     int mSize=msg.size();
@@ -85,6 +132,13 @@ void writeMsg(std::fstream &inFile,std::fstream &outFile,std::string msg)
     }  
 }
 
+/**
+ * @brief reads a secret message from the file if there is one
+ * 
+ * @param inFile file containing the secret
+ * @param sSize size of the secret
+ * @return std::string the secret
+ */
 std::string readMsg(std::fstream &inFile,int16_t sSize)
 {
     std::string secret="";
@@ -103,4 +157,5 @@ std::string readMsg(std::fstream &inFile,int16_t sSize)
         }
         secret+=temp;
     }
+    return secret;
 }
