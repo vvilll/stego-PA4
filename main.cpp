@@ -79,6 +79,7 @@ int main(int argc, char *argv[])
         }
         wFile.close();
         rFile.close();
+        std::cout<<"Message Encoded.\n";
     }
 
     if(decode)

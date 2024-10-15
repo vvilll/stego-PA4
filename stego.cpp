@@ -46,7 +46,7 @@ void checkBMP(std::fstream &file)
     char rMagic[2];
     file.read(rMagic,2);
     if(rMagic[0]=='B'&&rMagic[1]=='M'){
-        std::cout << "It is a bmp\n";
+        //std::cout << "It is a bmp\n";
     }else{
         std::cout<<"It is not a bmp file\n";
         exit(1);
@@ -64,7 +64,7 @@ void checkCompr(std::fstream &file)
     file.seekg(30L, std::ios::beg);
     file.read(reinterpret_cast<char*>(&compr),4);
     if(compr==0){
-        std::cout<<"file no compression\n";
+        //std::cout<<"file no compression\n";
     }else{
         std::cout<<"file has compression endcoding will not work\n";
         exit(1);
